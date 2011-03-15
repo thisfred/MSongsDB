@@ -56,6 +56,7 @@ DEF_MB_PASSWD = 'gordon'
 
 # for multiprocessing
 class KeyboardInterruptError(Exception):
+    """Keyboard interrupt exception."""
     pass
 
 
@@ -147,7 +148,7 @@ def convert_one_song_wrapper(args):
     except KeyboardInterrupt:
         raise KeyboardInterruptError()
     except Exception, e:
-        print 'ERROR with file: %s: %s' (args['audiofile'], e)
+        print 'ERROR with file: %s: %s' % (args['audiofile'], e)
     finally:
         if not mbconnect is None:
             mbconnect.close()
